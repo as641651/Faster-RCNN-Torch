@@ -29,7 +29,7 @@ luarocks install stnbhwd
 
 ## Pre-trained models for initialization
 
-Only VGG16 and VGG1024 models are currently supported. To convert pre-trained caffe versions of imagenet or py-faster-rcnn models to lua tables, see here. Alternatively, you can download the following torch compatable versions :
+Only VGG16 and VGG1024 models are currently supported. To convert pre-trained caffe versions of imagenet or py-faster-rcnn models to lua tables, see [here](https://github.com/as641651/Faster-RCNN-Torch/tree/master/init_models/transfer_from_caffe). Alternatively, you can download the following torch compatable versions :
 
 [Imagenet (VGG16 + FCN)](https://drive.google.com/open?id=0B8Uc-OssxXlDV1FheU1BVEdkVVE) <br />
 [FasterRCNN (VGG16 + RPN + FCN)](https://drive.google.com/drive/folders/0B8Uc-OssxXlDSmt1VF9MNHlVUGM?usp=sharing)
@@ -81,13 +81,13 @@ th run.lua -checkpoint_start_from checkpoint.t7 -eval
 ```
 
 ### Performance
-The mAP on Pascal VOC 2007 test set for the pre-trained Faster-RCNN VGG16 model (i.e, trained for 100K iteration with py-faster-rcnn achieveing 70%) in torch is 69.1%. 
+The mAP on Pascal VOC 2007 test set for the pre-trained Faster-RCNN VGG16 model (i.e, trained for 100K iteration with py-faster-rcnn achieveing 69.1%) in torch is 68.2%. 
 
 To run only the evaluation of caffe trained faster-rcnn VGG16 model (make sure that the torch compatable Faster-RCNN VGG16 model is available) 
 ```bash
 th run.lua -init_rpn -eval
 ```
-Training or further finetuning caffe models in torch currently does not improve this performance.
+The performance metrics used are described [here](https://github.com/as641651/Faster-RCNN-Torch/tree/master/eval). Training or further finetuning caffe models in torch currently does not improve this performance.
 
 
 
