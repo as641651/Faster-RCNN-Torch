@@ -31,8 +31,8 @@ luarocks install stnbhwd
 
 Only VGG16 and VGG1024 models are currently supported. To convert pre-trained caffe versions of imagenet or py-faster-rcnn models to lua tables, see here. Alternatively, you can download the following torch compatable versions :
 
-[Imagenet (VGG16 + FCN)](https://drive.google.com/open?id=0B8Uc-OssxXlDV1FheU1BVEdkVVE) <br />
-[FasterRCNN (VGG16 + RPN + FCN)](https://drive.google.com/drive/folders/0B8Uc-OssxXlDSmt1VF9MNHlVUGM?usp=sharing)
+[Imagenet (VGG16 + FCN)](https://drive.google.com/open?id=0B8Uc-OssxXlDbmJKWjk4MU9QaWs) <br />
+[FasterRCNN (VGG16 + RPN + FCN)](https://drive.google.com/open?id=0B8Uc-OssxXlDRXQ4WC1xQ1JoT28)
 
 After creating / downloading the torch version of pretrained model, set the corresponding model path in 'config.lua' :
 ```bash
