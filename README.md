@@ -1,5 +1,5 @@
 # Faster-RCNN-Torch
-Torch version of Faster RCNN model with ROI and Bilinear ROI Pooling of region proposals. Essential modules have been adapted from the [Densecap](https://github.com/jcjohnson/densecap) repository. 
+Torch version of Faster RCNN model with ROI and Bilinear ROI Pooling of region proposals. Essential modules have been adapted from the [Densecap](https://github.com/jcjohnson/densecap) repository. This work was carried out with the department [Informatik6](https://www-i6.informatik.rwth-aachen.de/) at [RWTH Aachen](http://www.rwth-aachen.de/cms/~a/root/?lidx=1) university under the supervision of [Mr.Harald Hanselmann, M.Sc](http://www.informatik.rwth-aachen.de/cms/Informatik/Fachgruppe/Kontakt/Fachstudienberater/~muxq/Harald-Hanselmann-M-Sc-Fachstudienber/?lidx=1&allou=1)
 
 ## Dependencies
 
@@ -87,7 +87,7 @@ To run only the evaluation of caffe trained faster-rcnn VGG16 model (make sure t
 ```bash
 th run.lua -init_rpn -eval
 ```
-Training or further finetuning caffe models in torch currently does not improve the performance.
+Training or further finetuning caffe models in torch currently does not improve this performance.
 
 
 
