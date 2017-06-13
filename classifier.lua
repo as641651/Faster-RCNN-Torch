@@ -155,7 +155,7 @@ function train.forward_backward(input,gt_boxes,gt_labels,fine_tune_cnn)
 -------------------------------------------------------------------------------
 -- forward_
 -------------------------------------------------------------------------------
-   print(input:size())
+   --print(input:size())
    local cnn_output_1 = model.cnn_1:forward(input)
 --   print(cnn_output_1:size())
    local cnn_output = model.cnn_2:forward(cnn_output_1)
@@ -192,7 +192,7 @@ function train.forward_backward(input,gt_boxes,gt_labels,fine_tune_cnn)
    local rpn_neg_scores = rpn_neg_data[4]
 
    local rpn_num_pos, rpn_num_neg = rpn_pos_boxes:size(1), rpn_neg_scores:size(1)
-   print("rpn  :", rpn_num_pos, rpn_num_neg)
+   --print("rpn  :", rpn_num_pos, rpn_num_neg)
   
 
    local rpn_roi_boxes = torch.Tensor():type(dtype)
@@ -267,7 +267,7 @@ function train.forward_backward(input,gt_boxes,gt_labels,fine_tune_cnn)
    local neg_scores = neg_data[4]
 
    local num_pos, num_neg = pos_boxes:size(1), neg_scores:size(1)
-   print("proposal : ", num_pos,num_neg)
+   --print("proposal : ", num_pos,num_neg)
   
    local roi_boxes = torch.Tensor():type(dtype)
    roi_boxes:resize(num_pos + num_neg, 4)
@@ -458,7 +458,7 @@ function deploy.forward_test(input,scale_factor)
 
    local cnn_output_1 = model.cnn_1:forward(input)
    local cnn_output = model.cnn_2:forward(cnn_output_1)
-   print(cnn_output:size())
+   --print(cnn_output:size())
   --[[ 
    for i=1,cnn_output:size(2) do
      for j=1,cnn_output:size(3) do
@@ -476,10 +476,10 @@ function deploy.forward_test(input,scale_factor)
    local num_boxes = rpn_boxes:size(2)
    --print(box_utils.xcycwh_to_x1y1x2y2(rpn_boxes[1]))
    --os.exit()
-   print(rpn_scores:size())
+   --print(rpn_scores:size())
    --rpn_scores = rpn_scores:permute(1,3,2):contiguous()
-   print(rpn_scores:size())
-   print(rpn_boxes:size())
+   --print(rpn_scores:size())
+   --print(rpn_boxes:size())
   --print(opt.nms_thresh)
   --print(opt.max_proposals)
   -- os.exit()
@@ -566,7 +566,7 @@ function deploy.forward_test(input,scale_factor)
 
    -- print(scores)
    -- os.exit()
-    print(rpn_boxes_x1y1x2y2:size())
+    --print(rpn_boxes_x1y1x2y2:size())
     local Y, preNMSidx = torch.topk(scores,6000,1,true,true)
     rpn_boxes_x1y1x2y2 = rpn_boxes_x1y1x2y2:index(2,preNMSidx)
     rpn_boxes = rpn_boxes:index(2,preNMSidx)
@@ -697,7 +697,7 @@ function deploy.forward_test(input,scale_factor)
          table.insert(final_boxes_output, final_regions_float:index(1, idx):typeAs(final_boxes))
          table.insert(class_scores_output, final_scores_float:index(1, idx):typeAs(net_out[1]))
          after_nms_boxes = after_nms_boxes + final_boxes_output[cls]:size(1)
-         print(box_utils.xcycwh_to_x1y1x2y2(final_regions_float:index(1,idx)):div(scale),final_scores_float:index(1,idx))
+  --       print(box_utils.xcycwh_to_x1y1x2y2(final_regions_float:index(1,idx)):div(scale),final_scores_float:index(1,idx))
          --print(final_regions_float:index(1,idx), final_scores_float:index(1,idx))
          --os.exit()
       else
